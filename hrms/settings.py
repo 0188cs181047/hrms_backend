@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 from pathlib import Path
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,16 +86,10 @@ WSGI_APPLICATION = 'hrms.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "hrms_db",
-        'USER': "root",
-        'PASSWORD': "12345",
-        'HOST': "localhost",
-        'PORT': "3306",
-    }
+    "default": dj_database_url.config(
+        default="postgresql://shiv_db:h4UmbVO6kKBFDhuFk1RSmnk3lvz55JYw@dpg-d6g3i59r0fns73em4cag-a.singapore-postgres.render.com:5432/hrms_db_nnb3"
+    )
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
